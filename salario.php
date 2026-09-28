@@ -8,7 +8,7 @@
 <body>
     <?php
         $a = $_POST['a'];
-        echo "El salario total multiplicado por 12 a la semana es de: ", $a * 12;
+        echo "El salario total multiplicado por 12 a la semana es de: ", $a * 12, "euros" ;
     ?>
 </body>
 </html>
