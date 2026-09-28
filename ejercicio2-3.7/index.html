@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lotería Primitiva</title>
+</head>
+<body>
+
+    <h2>Lotería Primitiva</h2>
+
+    <form action="sorteo.php" method="get">
+        <label>Introduce 6 números (1-49):</label><br>
+        <input type="number" name="n1" min="1" max="49" required>
+        <input type="number" name="n2" min="1" max="49" required>
+        <input type="number" name="n3" min="1" max="49" required>
+        <input type="number" name="n4" min="1" max="49" required>
+        <input type="number" name="n5" min="1" max="49" required>
+        <input type="number" name="n6" min="1" max="49" required>
+        <br><br>
+        <label>Número de serie (1-999):</label><br>
+        <input type="number" name="serie" min="1" max="999" required>
+        <br><br>
+        <input type="submit" value="Jugar">
+    </form>
+
+</body>
+</html>
