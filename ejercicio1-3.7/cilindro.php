@@ -7,8 +7,13 @@
 </head>
 <body>
     <?php
-        $a = $_POST['a'];
-        echo "El salario total multiplicado por 12 a la semana es de: ", $a * 12, "euros" ;
+
+    $a = $_POST['a'];
+    $b = $_POST['b'];
+    $pi = 3.1416;
+
+    echo "El volumen del cilindro es de: ", $pi * ($a * $a) * $b;
+
     ?>
 </body>
 </html>
