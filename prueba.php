@@ -14,6 +14,8 @@ $a++;
 echo $a,"<br>";
 $b--;
 echo $b,"<br>";
+print_r(get_defined_vars());
+
 ?>
 </body>
 </html>
