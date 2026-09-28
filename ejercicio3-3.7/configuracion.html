@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración de Estilos</title>
+</head>
+<body>
+
+    <h2>Configurar aspecto de la página</h2>
+
+    <form action="resultado.php" method="POST">
+
+        <p>
+            <label for="color_fondo">Color de fondo:</label><br>
+            <input type="color" id="color_fondo" name="color_fondo" value="#ffffff">
+        </p>
+
+        <p>
+            <label for="color_texto">Color del texto:</label><br>
+            <input type="color" id="color_texto" name="color_texto" value="#000000">
+        </p>
+
+        <p>
+            <label for="fuente">Tipo de letra:</label><br>
+            <select id="fuente" name="fuente">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="alineacion">Alineación del texto:</label><br>
+            <select id="alineacion" name="alineacion">
+                <option value="left">Izquierda</option>
+                <option value="center">Centrado</option>
+                <option value="right">Derecha</option>
+                <option value="justify">Justificado</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="tamano">Tamaño de fuente (del 1 al 7):</label><br>
+            <input type="number" id="tamano" name="tamano" value="3" min="1" max="7">
+        </p>
+
+        <p>
+            Selecciona un banner:<br>
+            <input type="radio" id="banner1" name="banner" value="https://picsum.photos/id/1018/800/200" checked>
+            <label for="banner1">Naturaleza</label><br>
+
+            <input type="radio" id="banner2" name="banner" value="https://picsum.photos/id/1015/800/200">
+            <label for="banner2">Montaña</label><br>
+
+            <input type="radio" id="banner3" name="banner" value="https://picsum.photos/id/1016/800/200">
+            <label for="banner3">Desierto</label>
+        </p>
+
+        <p>
+            <input type="submit" value="Aplicar y ver resultado">
+        </p>
+
+    </form>
+
+</body>
+</html>
