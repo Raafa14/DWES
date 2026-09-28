@@ -6,7 +6,12 @@
     <title>Document</title>
 </head>
 <body>
+
+    <img src="cilindro.png" alt="Ilustración de un cilindro" width="200">
+
     <?php
+
+    
 
     $a = $_POST['a'];
     $b = $_POST['b'];
