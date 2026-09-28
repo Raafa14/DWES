@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 </head>
 <body>
-<!-- Muestra una frase con HTML -->
-Hola mundo<br>
-<!-- Muestra una frase con PHP -->
 <?php
-echo "Es muy fácil programar en PHP.";
+$x = 24;
+$pi = 3.1416;
+$animal = "conejo";
+$saludo = "hola caracola";
+echo $x, "<br>", $pi, "<br>", $animal, "<br>", $saludo;
 ?>
 </body>
 </html>
