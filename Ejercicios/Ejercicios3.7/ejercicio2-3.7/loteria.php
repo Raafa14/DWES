@@ -1,4 +1,5 @@
 <?php
+$contador = 0;
 // 1. Recoger datos del formulario
 $loteria = [
     $_GET['n1'],
@@ -18,6 +19,7 @@ while (count($generados) < 6) {
         $generados[] = $num;
     }
 }
+
 $serieGenerada = rand(1, 999);
 ?>
 
@@ -61,7 +63,7 @@ $serieGenerada = rand(1, 999);
     </table>
 
     <br>
-    <a href="formulario.html">Volver a jugar</a>
+    <a href="index.html">Volver a jugar</a><br><br>
 
 </body>
 </html>
