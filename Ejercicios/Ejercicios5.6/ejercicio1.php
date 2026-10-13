@@ -39,6 +39,7 @@ for ($i = 0; $i < 20; $i++) {
         <th>Cuadrado</th>
         <th>Cubo</th>
     </tr>
+    
 <?php for ($i = 0; $i < 20; $i++): ?>
     <tr>
         <td><?= $i+1 ?></td>
@@ -47,6 +48,7 @@ for ($i = 0; $i < 20; $i++) {
         <td><?= $cubo[$i] ?></td>
     </tr>
 <?php endfor; ?>
+
 </table>
 
 
