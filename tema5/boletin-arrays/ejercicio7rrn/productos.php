@@ -10,9 +10,15 @@
     for ($i = 0; $i < count($productos); $i++) {
         $contador++;
     }
+    $textoCaro = "";
+    $masCaro=0;
     $mediaTotal = 0;
     foreach($productos as $i => $media) {
         $mediaTotal += $media / $contador;
+        if ($media > $masCaro) {
+            $textoCaro = $i;
+            $masCaro = $media;
+        }
     }
 
 ?>
@@ -38,17 +44,21 @@
         <tr>
             <th>Producto</th>
             <th>Precio</th>
-            <th>Media</th>
-            <td><?= $mediaTotal ?></td>
-            <th>Producto mas caro</th>
         </tr>
-
         <?php foreach($productos as $i => $valor): ?>
         <tr>
             <td><?= $i ?></td>
             <td><?= $valor . " €"?></td>
         </tr>
         <?php endforeach; ?>
+        <tr>
+            <th>Media</th>
+            <td><?= $mediaTotal . " €"?></td>
+        </tr>
+        <tr>
+            <th>Producto mas caro</th>
+            <td><?= $textoCaro ." ". $masCaro ." €" ?></td>
+        </tr>
 
     </table>
 </body>
