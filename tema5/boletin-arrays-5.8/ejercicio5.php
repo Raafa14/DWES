@@ -4,7 +4,7 @@
         $aspirantes=[];
     }else{
         $aspirantes=unserialize(base64_decode($_REQUEST['aspirantes']));
-        $aspirantes[$_REQUEST['nombre']]=$_REQUEST['datos'];
+        $aspirantes[$_REQUEST['nombre']] = $_REQUEST['datos'];
     }
     $aspiranteTexto=base64_encode(serialize($aspirantes));    
 
@@ -30,10 +30,10 @@
     </form>
 
      
-    <h3>Listado: </h3>
+    <h3>Para enviar a pagina nueva: </h3>
 
     <form action="ejercicio5-listado.php" method="post">
-        <input type="hidden" name='aspirantes' value=<?= $aspiranteTexto ?>>
+        <input type="hidden" name="aspirantes" value=<?= $aspiranteTexto ?>>
         <input type="submit" value="Enviar todos los aspirantes">
     </form>
        
