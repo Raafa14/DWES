@@ -19,6 +19,7 @@
     <title>Document</title>
 </head>
 <body>
+    <p>Aspirantes registrados actualmente: <?= count($aspirantes) ?></p>
     <form action="" method="post">
         nombre:           <input type="text" name="nombre"><br>
         edad:             <input type="number" name="datos[edad]"><br>
@@ -33,7 +34,7 @@
     <h3>Para enviar a pagina nueva: </h3>
 
     <form action="ejercicio5-listado.php" method="post">
-        <input type="hidden" name="aspirantes" value=<?= $aspiranteTexto ?>>
+       <input type="hidden" name="aspirantes" value="<?= $aspiranteTexto ?>">
         <input type="submit" value="Enviar todos los aspirantes">
     </form>
        
