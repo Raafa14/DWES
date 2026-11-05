@@ -18,7 +18,9 @@
                 ];
     }else{
         $personas=unserialize(base64_decode($_REQUEST['personas']));
-        //$personas[$_REQUEST['nombre']] = $_REQUEST['sexo'];
+        if (isset($_POST['nombre']) && isset($_POST['sexo']) && isset($_POST['orientacion'])) {
+            $personas[] = ['nombre' => $_POST['nombre'], 'sexo' => $_POST['sexo'], 'orientacion' => $_POST['orientacion']];
+        }
     }
     $datosPersonas=base64_encode(serialize($personas));  
 ?>
@@ -45,12 +47,28 @@
         Introduce el nombre: <br>
         <input type="text" name="nombre" required><br>
         Introduce el sexo: <br>
-        <input type="text" name="sexo" required><br>
-        Introduce la orientacion: <br>
-        <input type="text" name="orientacion" required><br>
+        <label>
+            <input type="radio" name="sexo" value="h" required> Hombre
+        </label>
+        <label>
+            <input type="radio" name="sexo" value="m" required> Mujer
+        </label>
+        <br><br>
 
-        <input type="hidden" name="personas" value="<?= $datosPersonas ?>">
+        Introduce la orientación: <br>
+        <label>
+            <input type="radio" name="orientacion" value="het" required> Heterosexual
+        </label>
+        <label>
+            <input type="radio" name="orientacion" value="hom" required> Homosexual
+        </label>
+        <label>
+            <input type="radio" name="orientacion" value="bis" required> Bisexual
+        </label>
+
+        <input type="hidden" name="personas" value="<?= $datosPersonas ?>"><br>
         <input type="submit" value="Enviar">
+
     </form>
     <br>
     <h1>Para enviarlo a la otra pagina.</h1>
@@ -58,6 +76,9 @@
         <input type="hidden" name="personas" value="<?= $datosPersonas ?>">
         <input type="submit" value="Enviar a la otra pagina">
     </form>
+
+    <br>
+<hr>
 
     <table>
     <tr>
@@ -72,7 +93,7 @@
             <?php endforeach; ?>
         </tr>
     <?php endforeach; ?>
-</table>
+    </table>
 
 </body>
 </html>
