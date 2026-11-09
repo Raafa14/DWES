@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Catálogo de productos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid black;
+            padding:5px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -29,7 +39,7 @@
     </form>
 
     <br><br>
-    <table border="1">
+    <table>
         <tr>
             <th>Nombre</th>
             <th>Precio</th>
@@ -38,10 +48,10 @@
         </tr>
         <?php foreach ($productosFiltrados as $producto): ?>
             <tr>
-                <td><?= htmlspecialchars($producto["nombre"]) ?></td>
-                <td><?= htmlspecialchars($producto["precio"]) ?> €</td>
-                <td><?= htmlspecialchars($producto["stock"]) ?></td>
-                <td><?= htmlspecialchars($producto["caducidad"]) ?></td>
+                <td><?= $producto["nombre"] ?></td>
+                <td><?= $producto["precio"] ?> €</td>
+                <td><?= $producto["stock"] ?></td>
+                <td><?= $producto["caducidad"] ?></td>
             </tr>
             <?php
                 if ($producto["caducidad"] < date("Y-m-d")) {

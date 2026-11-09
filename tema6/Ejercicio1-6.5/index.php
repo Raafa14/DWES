@@ -4,6 +4,8 @@ require_once __DIR__ . "/funciones.php";
 
 
 if (!isset($_POST['numsIntro'])) {
+    $nSerie = null;
+    $texto = '';
     $numsIntro = [];
 } else {
     $n1 = $_POST['n1'];
@@ -13,6 +15,7 @@ if (!isset($_POST['numsIntro'])) {
     $n5 = $_POST['n5'];
     $n6 = $_POST['n6'];
     $nSerie = $_POST['nSerie'];
+    $texto = $_POST['texto'];
     $numsIntro = [$n1, $n2, $n3, $n4, $n5, $n6];
 }
 
@@ -49,21 +52,13 @@ if (!isset($_POST['numsIntro'])) {
     <input type="number" name="nSerie" min="1" max="999"><br>
     <br>
     <input type="hidden" name="numsIntro">
+    
+    Introduce un texto(Opcional)<br>
+    <input type="text" name="texto"><br><br>
     <input type="submit" value="Enviar datos">
     </form>
     <hr>
-
-    <h2>Tabla Introducida</h2>
-    <table>
-        <tr>
-            <?php foreach(combinacion($numsIntro, $nSerie) as $nums): ?>
-
-                <td><?= $nums ?></td>
-
-            <?php endforeach;?>
-        </tr>
-    </table>
-
+    <?php imprimeApuesta($numsIntro, $texto) ?>
 
 </body>
 </html>

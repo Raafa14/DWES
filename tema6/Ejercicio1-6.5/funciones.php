@@ -26,9 +26,31 @@ function combinacion($numsIntro, $nSerie) {
         $serieFinal = (int)$nSerie;
     };
 
-    $combinacion[] = $serieFinal; // Añadimos la serie como la posición 7
+    $combinacion[] = $serieFinal; 
     return $combinacion;
 
 };
+
+function imprimeApuesta($numsIntro, $texto) {
+    $nSerie = null;
+    echo "<table>";
+        if (empty($texto)) {
+            echo "<tr>";
+                echo "Titulo Vacío";
+            echo "</tr>";
+        }   else {
+            echo "<tr>";
+                echo "$texto";
+            echo "</tr>";
+        };
+        echo "<tr>";
+            foreach (combinacion($numsIntro, $nSerie) as $nums) {
+                echo "<td>";
+                    echo "$nums";
+                echo "</td>";
+            }
+        echo "</tr>";
+    echo "</table>";
+}
 
 ?>
