@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . "/controlAcceso.php";
 
-// Obtenemos las dos tarjetas usando dameTarjeta()
 $tarjetaAdmin = dameTarjeta('admin');
 $tarjetaEstandar = dameTarjeta('estandar');
 
@@ -56,14 +55,14 @@ $columnaAzar = $letrasDisponibles[array_rand($letrasDisponibles)];
 <body>
 
 <!-- Tablas mostradas mediante la función imprimeTarjeta() -->
-    <div class="contenedor-tarjetas">
+    <div class="container">
         <?= imprimeTarjeta($tarjetaAdmin, 'Administrador') ?>
         <?= imprimeTarjeta($tarjetaEstandar, 'Usuario estándar') ?>
     </div>
 
     <?php if (!$formularioEnviado): ?>
         <!-- FORMULARIO DE ACCESO -->
-        <form action="" method="post">
+        <form action="permitido.php" method="post">
             <label for="perfil">Perfil:</label><br>
             <select name="perfil" id="perfil" required>
                 <option value="admin">Administrador</option>
@@ -81,20 +80,6 @@ $columnaAzar = $letrasDisponibles[array_rand($letrasDisponibles)];
 
             <input type="submit" value="COMPROBAR">
         </form>
-
-    <?php else: ?>
-        <!-- RESULTADO TRAS COMPROBAR -->
-        <?php if ($accesoPermitido): ?>
-            <div class="cuadro-resultado">
-                <h3>Acceso Permitido</h3>
-                <a href="https://proyectorafamiguel.lovable.app/" class="btn">CONTINUAR</a>
-            </div>
-        <?php else: ?>
-            <div class="cuadro-resultado">
-                <h3>Clave incorrecta. Acceso Restringido</h3>
-                <a href="index.php" class="btn">VOLVER</a>
-            </div>
-        <?php endif; ?>
     <?php endif; ?>
 
 </body>

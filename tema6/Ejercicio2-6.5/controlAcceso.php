@@ -23,52 +23,50 @@
     }
 
     function compruebaClave($matriz, $coordenadas, $valor) {
-    // Mapeo para traducir la letra de columna (A-E) a su índice numérico (0-4)
-        $columnas = [
-            'A' => 0,
-            'B' => 1,
-            'C' => 2,
-            'D' => 3,
-            'E' => 4,
-        ];
+        // Mapeo para traducir la letra de columna (A-E) a su índice numérico (0-4)
+            $columnas = [
+                'A' => 0,
+                'B' => 1,
+                'C' => 2,
+                'D' => 3,
+                'E' => 4,
+            ];
 
-    // Ajustamos la fila (1-5 a índice 0-4)
-        if (!isset($coordenadas['columna']) || !isset($columnas[$coordenadas['columna']])) {
+        // Ajustamos la fila (1-5 a índice 0-4)
+            if (!isset($coordenadas['columna']) || !isset($columnas[$coordenadas['columna']])) {
+            return false;
+        }
+
+        $indiceFila = $coordenadas['fila'] - 1;
+        $indiceColumna = $columnas[$coordenadas['columna']];
+
+        // Verificamos si existe la posición y si el valor coincide
+            if (isset($matriz[$indiceFila][$indiceColumna])) {
+                return (int)$matriz[$indiceFila][$indiceColumna] === (int)$valor;
+            }
+
         return false;
     }
 
-    $indiceFila = $coordenadas['fila'] - 1;
-    $indiceColumna = $columnas[$coordenadas['columna']];
-
-    // Verificamos si existe la posición y si el valor coincide
-        if (isset($matriz[$indiceFila][$indiceColumna])) {
-            return (int)$matriz[$indiceFila][$indiceColumna] === (int)$valor;
-        }
-
-    return false;
-    }
-
     function imprimeTarjeta($matriz, $titulo = '') {
-    $html = '<table>';
-    if (!empty($titulo)) {
-        $html .= '<tr><th colspan="6">' . $titulo . '</th></tr>';
-    }
-    
-    // Fila con letras
-    $html .= '<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr>';
-
-    // Filas con números y casillas
-    foreach ($matriz as $i => $fila) {
-        $html .= '<tr>';
-        $html .= '<th>' . ($i + 1) . '</th>';
-        foreach ($fila as $num) {
-            $html .= '<td>' . $num . '</td>';
+        $html = '<table>';
+        if (!empty($titulo)) {
+            $html .= '<tr><th colspan="6">' . $titulo . '</th></tr>';
         }
-        $html .= '</tr>';
-    }
+        
+        $html .= '<tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr>';
 
-    $html .= '</table>';
-    return $html;
-}
+        foreach ($matriz as $i => $fila) {
+            $html .= '<tr>';
+            $html .= '<th>' . ($i + 1) . '</th>';
+            foreach ($fila as $num) {
+                $html .= '<td>' . $num . '</td>';
+            }
+            $html .= '</tr>';
+        }
+
+        $html .= '</table>';
+        return $html;
+    }
 
 ?>
