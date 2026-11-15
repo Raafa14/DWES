@@ -1,52 +1,34 @@
-<?php 
-$mensaje = '';
+<?php
+$mensaje = "";
 
 if (isset($_POST['enviar'])) {
-    $dia = (int)$_POST['dia'];
-    $mes = (int)$_POST['mes'];
-    $year = (int)$_POST['year'];
-    $actual = (int)date("d-m-Y", strtotime("now + $dia days + $mes month + $year year"));
+    $anios = $_POST['anios'];
+    $meses = $_POST['meses'];
+    $dias = $_POST['dias'];
 
-    $nombres = [
-        1 => 'Lunes', 
-        2 => 'Martes', 
-        3 => 'Miércoles', 
-        4 => 'Jueves', 
-        5 => 'Viernes', 
-        6 => 'Sábado', 
-        7 => 'Domingo'
-    ];
-
-    $diaSumado = (int)date("N", strtotime($actual));
-
-    $mensaje = $diaSumado;
+    $fechaFutura = strtotime("+$anios years +$meses months +$dias days");
     
+    $diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    $numeroDia = date("w", $fechaFutura);
 
-} 
-
-
+    $mensaje = "La fecha resultante es: " . date("d/m/Y", $fechaFutura) . "<br>";
+    $mensaje .= "Caerá en: <b>" . $diasSemana[$numeroDia] . "</b>";
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 6</title>
 </head>
 <body>
     <form action="" method="post">
-        Introduce el dia: <br>
-        <input type="number" name="dia"><br>
-        Introduce el mes: <br>
-        <input type="number" name="mes"> <br>
-        Introduce el año: <br>
-        <input type="year" name="year"> <br>
-
-        <input type="submit" name="enviar" value="Enviar">
+        Años: <input type="number" name="anios" value="0" required><br>
+        Meses: <input type="number" name="meses" value="0" required><br>
+        Días: <input type="number" name="dias" value="0" required><br>
+        <input type="submit" name="enviar" value="Calcular día">
     </form>
 
-    <textarea name="" id="">
-        <?php echo $mensaje; ?>
-    </textarea>
+    <p><?php echo $mensaje; ?></p>
 </body>
 </html>
