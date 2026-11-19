@@ -2,6 +2,7 @@
 
 <?php 
 session_start();
+$numero = 0;
 if  (!isset($_SESSION['numero']) || !is_array($_SESSION['numero'])) {
     $_SESSION['numero'] = [];
 }
@@ -55,10 +56,9 @@ if (isset($_POST['numero'])) {
     </table>
 
             <?php 
-                $division = 0;
             if ($numero < 0) {
                 echo "Media: ";
-                $division = ($suma / $contador);
+                $division = (float)round(($suma / $contador), 2);
                 echo $division;
             }
             ?>
