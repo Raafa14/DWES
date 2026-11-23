@@ -18,7 +18,6 @@ if (isset($_POST['numero'])) {
         if ($numero >= 0) {
             $_SESSION['numero'][] = $numero;
         } else {
-            unset($_SESSION['numero']);
             $mensaje = "Array terminado, has introducido un numero negativo";
         }
     }
@@ -77,6 +76,7 @@ if (isset($_POST['numero'])) {
                 $division = (float)round(($suma / $contador), 2);
                 echo $division . "<br>";
                 echo $mensaje;
+                $_SESSION['numero'] = [];
             }
             ?>
 

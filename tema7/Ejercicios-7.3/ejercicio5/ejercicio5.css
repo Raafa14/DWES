@@ -1,0 +1,34 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container__caja1 {
+            border: 1px solid black;
+        }
+        .container, .carrito {
+            width: 50%;
+            margin: 5px;
+        }
+        .img1 {
+            width: 300px;
+        }
+        .boton {
+            padding: 5px;
+            background: linear-gradient(to right, red 20%, purple 80%);
+            color: white;
+            border: 0px solid;
+            padding: 5px;
+        }
+        .form {
+            align-self: center;
+        }
+        .container__caja--dividir {
+            display: flex;
+        }
+        .cajas {
+            display: flex;
+        }
+        .carrito {
+            border: 1px solid black;
+        }
